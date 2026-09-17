@@ -1,0 +1,26 @@
+# Environments
+.env
+.env.local
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Node / Frontend
+node_modules/
+dist/
+npm-debug.log*
+package-lock.json
+
+# Large Data Files (Prevents uploading massive satellite images)
+*.tif
+*.tiff
+backend/data/
+
+# OS generated files
+.DS_Store
+Thumbs.db

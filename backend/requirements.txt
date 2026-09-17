@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-multipart
+requests
+nest-asyncio
+pyngrok
+torch
+transformers
+accelerate
+bitsandbytes
+qwen-vl-utils
+rasterio
+pillow
