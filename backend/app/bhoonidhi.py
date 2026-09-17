@@ -2,6 +2,7 @@ import os
 import time
 import requests
 from fastapi import HTTPException
+from dotenv import load_dotenv
 
 load_dotenv()
 
