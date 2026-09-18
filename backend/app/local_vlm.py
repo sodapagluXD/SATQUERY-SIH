@@ -34,7 +34,7 @@ def load_gpu_model():
         return MODEL_CACHE["model"], MODEL_CACHE["processor"]
 
     # Lazy import heavy CUDA libraries only when GPU is present
-    from transformers import Qwen2VLForConditionalGeneration, AutoProcessor, BitsAndBytesConfig
+    from transformers import Qwen2_5_VLForConditionalGeneration, AutoProcessor, BitsAndBytesConfig
     
     print("⚡ CUDA detected. Loading Qwen2.5-VL-7B-Instruct into GPU VRAM...")
     model_id = "Qwen/Qwen2.5-VL-7B-Instruct"
@@ -44,7 +44,7 @@ def load_gpu_model():
         bnb_4bit_compute_dtype=torch.float16
     )
 
-    model = Qwen2VLForConditionalGeneration.from_pretrained(
+    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
         model_id,
         quantization_config=quantization_config,
         device_map={"": 0}
