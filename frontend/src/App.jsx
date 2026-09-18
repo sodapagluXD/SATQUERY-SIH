@@ -5,6 +5,7 @@ import axios from 'axios';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Search, Loader2 } from 'lucide-react';
+import ReactMarkdown from 'react-markdown'; // <-- NEW IMPORT
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN || '';
 if (MAPBOX_TOKEN) {
@@ -37,14 +38,13 @@ export default function App() {
     try {
       map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: MAPBOX_TOKEN ? 'mapbox://styles/mapbox/satellite-streets-v9' : MAP_STYLE, // <-- NEW: Adds roads and labels
+      style: MAPBOX_TOKEN ? 'mapbox://styles/mapbox/satellite-streets-v9' : MAP_STYLE, 
       center: [78.9629, 20.5937],
       zoom: 5,
-      pitch: 40, // Optional: Tilts the camera slightly for a cool 3D perspective
-      projection: 'globe' // Renders the map as a 3D globe when zoomed out
+      pitch: 40, 
+      projection: 'globe' 
     });
     
-    // Optional: Add atmospheric fog to make the globe look realistic
     map.current.on('style.load', () => {
       map.current.setFog({}); 
     });
@@ -150,7 +150,12 @@ export default function App() {
               <p className="text-red-400 text-sm">{result.error}</p>
             ) : (
               <>
-                <p className="text-sm leading-relaxed">{result.evidence_grounded_answer}</p>
+                {/* --- NEW: Markdown Rendering Block --- */}
+                <ReactMarkdown className="prose prose-invert prose-sm text-gray-300 max-w-none leading-relaxed">
+                  {result.evidence_grounded_answer}
+                </ReactMarkdown>
+                {/* ------------------------------------- */}
+                
                 <div className="flex gap-2 mt-4 pt-3 border-t border-gray-600">
                   <span className="text-[10px] bg-blue-900/50 text-blue-300 px-2 py-1 rounded border border-blue-700">Model: {result.model_used}</span>
                 </div>
