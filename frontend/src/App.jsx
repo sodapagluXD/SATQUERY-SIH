@@ -152,7 +152,7 @@ export default function App() {
               <>
                 {/* --- NEW: Markdown Rendering Block --- */}
                 <ReactMarkdown className="prose prose-invert prose-sm text-gray-300 max-w-none leading-relaxed">
-                  {result.evidence_grounded_answer}
+                  {result.evidence_grounded_answer || ""}
                 </ReactMarkdown>
                 {/* ------------------------------------- */}
                 

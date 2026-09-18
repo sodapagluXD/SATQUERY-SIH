@@ -19,6 +19,8 @@
 //   plugins: [],
 // }
 
+import typography from '@tailwindcss/typography'; // <-- Add to very top
+
 export default {
   content: [
     "./index.html",
@@ -28,6 +30,6 @@ export default {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/typography'), // <-- Ensure this is here
+    typography, // <-- Change this line
   ],
 }
