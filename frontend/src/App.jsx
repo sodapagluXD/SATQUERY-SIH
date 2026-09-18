@@ -150,10 +150,12 @@ export default function App() {
               <p className="text-red-400 text-sm">{result.error}</p>
             ) : (
               <>
-                {/* --- NEW: Markdown Rendering Block --- */}
-                <ReactMarkdown className="prose prose-invert prose-sm text-gray-300 max-w-none leading-relaxed">
-                  {result.evidence_grounded_answer || ""}
-                </ReactMarkdown>
+                {/* --- NEW: Wrapped Markdown Rendering Block --- */}
+                <div className="prose prose-invert prose-sm text-gray-300 max-w-none leading-relaxed">
+                  <ReactMarkdown>
+                    {result.evidence_grounded_answer || ""}
+                  </ReactMarkdown>
+                </div>
                 {/* ------------------------------------- */}
                 
                 <div className="flex gap-2 mt-4 pt-3 border-t border-gray-600">
