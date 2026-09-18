@@ -47,7 +47,7 @@ def load_gpu_model():
     model = Qwen2VLForConditionalGeneration.from_pretrained(
         model_id,
         quantization_config=quantization_config,
-        device_map="auto"
+        device_map={"": 0}
     )
     processor = AutoProcessor.from_pretrained(model_id)
 
@@ -111,4 +111,6 @@ def ask_satellite_image(image_path: str, user_query: str) -> str:
         )[0]
 
     except Exception as e:
-        return f"VLM Execution Error: {str(e)}"
+        import traceback
+        traceback.print_exc()  # <--- Prints the exact line of the crash in Colab
+        return f"VLM Execution Error: {repr(e)}" # <--- repr() catches empty strings
