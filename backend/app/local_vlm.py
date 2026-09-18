@@ -99,7 +99,7 @@ def ask_satellite_image(image_path: str, user_query: str) -> str:
             videos=video_inputs,
             padding=True,
             return_tensors="pt"
-        ).to(model.device)
+        ).to("cuda")
 
         generated_ids = model.generate(**inputs, max_new_tokens=256)
         generated_ids_trimmed = [
