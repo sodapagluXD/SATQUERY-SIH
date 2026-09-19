@@ -182,7 +182,7 @@ Once both your frontend and backend are running, follow these steps to use the A
 
 ---
 
-**Developed by Souvik Das (IEM Kolkata) | Team Binary Blitz**
+**Developed by MINIMALIST**
 
 ```
 
